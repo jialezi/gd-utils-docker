@@ -1,0 +1,17 @@
+https://xkx.me {
+ timeouts none
+ gzip
+ tls ssl@xkx.me
+ proxy  / 127.0.0.1:23333 {
+   transparent
+   websocket
+ }
+ proxy  /file 127.0.0.1:8080 {
+   transparent
+   websocket
+ }
+ proxy  /shell 127.0.0.1:4200 {
+   transparent
+   websocket
+ }
+}

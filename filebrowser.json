@@ -1,6 +1,6 @@
 {
-  "port": 80,
-  "baseURL": "",
+  "port": 8080,
+  "baseURL": "/file",
   "address": "",
   "log": "stdout",
   "database": "/database.db",
