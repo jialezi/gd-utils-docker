@@ -1,6 +1,8 @@
 ## 修改自用版
+
 https://github.com/gdtool/gd-utils-docker 
 小改自用版，使用caddy反代，自动申请LET ssl。
+
 ------------------------------------------------------------
 ## 使用方法:
 示例：提前解析abc.com到你的服务器ip，搭建后访问
@@ -9,10 +11,10 @@ https://github.com/gdtool/gd-utils-docker
 
 2）https://abc.com/shell   shellinabox地址
 
-账号gd，密码自设 USERPWD=123qwe   ||
-su root切换到root 密码自设 USERPWD=123qwe
+账号`gd`，密码自设 USERPWD=`123qwe`  ||
+`su root`切换到root 密码自设 USERPWD=`123qwe`
 
-3）https://abc.com/file   filebrowser 账号密码admin
+3）https://abc.com/file   filebrowser 账号密码都是`admin`
 
 -------------------------------
 1.下载配置文件，按要求修改里面的参数
@@ -25,7 +27,7 @@ wget https://raw.githubusercontent.com/gdtool/gd-utils-docker/master/config.exam
 ```
 docker run --restart=always  -it -e USERPWD=123qwe  -p 443:443  -p 80:80   -e Domain=abc.com -v ${PWD}/sa:/gd-utils/sa  -v ${PWD}/config.js:/gd-utils/config.js   --name gd-utils jialezi/gd-utils
 ```
-USERPWD为shellinabox密码   ||  Domain=abc.com 为自己域名，要提前解析，由caddy自动申请ssl
+USERPWD=`123qwe`为shellinabox密码   ||  Domain=`abc.com` 为自己域名，要提前解析，由caddy自动申请ssl
 
 4.对接telegram bot
 ```
@@ -53,6 +55,8 @@ docker build -f Dockerfile . -t gd-utils
 docker run --restart=always  -it -e USERPWD=123qwe  -p 443:443  -p 80:80   -e Domain=abc.com -v ${PWD}/sa:/gd-utils/sa  -v ${PWD}/config.js:/gd-utils/config.js   --name gd-utils gd-utils
 ```
 
+-----------------------------------------
+-----------------------------------------
 
 # [gd-utils](https://github.com/iwestlin/gd-utils)的Docker版,快速搭建google drive 转存工具
 
@@ -67,18 +71,13 @@ docker run --restart=always  -it -e USERPWD=123qwe  -p 443:443  -p 80:80   -e Do
 
 ~~# 使用方法:
 gd-utils的Docker版,使用方法:
-
-
 **4200端口:** webshell,账号:`gd`,密码:`your_self_passsword`
-
 **23333端口:** gd-utils机器人
+**80端口:** 文件管理,**默认不启动**  **默认不启动**   **默认不启动**~~
+> ~~启动方法:登录webshell;`su root` 然后执行`cd / && filebrowser &`,账号密码:admin
+**持久化目录:** /gd-utils/~~
 
-**80端口:** 文件管理,**默认不启动**  **默认不启动**   **默认不启动**
-> 启动方法:登录webshell;`su root` 然后执行`cd / && filebrowser &`,账号密码:admin
-
-**持久化目录:** /gd-utils/
-
-```
+~~```
 docker run --restart=always  -d \
 -e USERPWD="your_self_passsword" \
 -p 4200:4200 \
